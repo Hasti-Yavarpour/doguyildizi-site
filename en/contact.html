@@ -1,0 +1,39 @@
+<!-- Same <head> and navbar (in English) -->
+
+<div class="container mt-5">
+  <h2>Contact Form</h2>
+  <form action="https://formspree.io/f/xnnvrblr" method="POST">
+    <div class="col-md-6">
+      <label for="name" class="form-label">Full Name</label>
+      <input type="text" name="name" class="form-control" id="name" required>
+    </div>
+    <div class="col-md-6">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" name="email" class="form-control" id="email" required>
+    </div>
+    <div class="col-12">
+      <label for="message" class="form-label">Your Message</label>
+      <textarea name="message" class="form-control" id="message" rows="4" required></textarea>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Send</button>
+    </div>
+  </form>
+
+  <hr class="my-5">
+
+  <h4>Our Address</h4>
+  <p>Merkez Mah. Hasat Sok. Kamara No: 52/1, Şişli, Istanbul, Turkey</p>
+
+  <div class="ratio ratio-16x9">
+    <iframe
+      src="https://www.google.com/maps?q=Merkez+Mah.+Hasat+Sok.+Kamara+No:52/1,+Şişli,+İstanbul&output=embed"
+      allowfullscreen
+      loading="lazy">
+    </iframe>
+  </div>
+</div>
+
+<footer class="bg-light text-center text-muted py-3 mt-5">
+  &copy; 2025 Dogu Yildizi A.S. All rights reserved.
+</footer>

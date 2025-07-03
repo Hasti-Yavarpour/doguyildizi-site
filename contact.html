@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>İletişim - Doğu Yıldızı</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
+  <a class="navbar-brand" href="index.html">Doğu Yıldızı</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+      <li class="nav-item"><a class="nav-link" href="about.html">Hakkımızda</a></li>
+      <li class="nav-item"><a class="nav-link" href="services.html">Hizmetler</a></li>
+      <li class="nav-item"><a class="nav-link active" href="contact.html">İletişim</a></li>
+    </ul>
+    <a href="en/contact.html" class="btn btn-outline-primary btn-sm">English</a>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <h2>İletişim Formu</h2>
+  <form action="https://formspree.io/f/xnnvrblr" method="POST">
+    <div class="col-md-6">
+      <label for="name" class="form-label">Ad Soyad</label>
+      <input type="text" name="name" class="form-control" id="name" required>
+    </div>
+    <div class="col-md-6">
+      <label for="email" class="form-label">E-posta</label>
+      <input type="email" name="email" class="form-control" id="email" required>
+    </div>
+    <div class="col-12">
+      <label for="message" class="form-label">Mesajınız</label>
+      <textarea name="message" class="form-control" id="message" rows="4" required></textarea>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Gönder</button>
+    </div>
+  </form>
+
+  <hr class="my-5">
+
+  <h4>Adresimiz</h4>
+  <p>Merkez Mah. Hasat Sok. Kamara No: 52/1, Şişli, İstanbul, Türkiye</p>
+
+  <div class="ratio ratio-16x9">
+    <iframe
+      src="https://www.google.com/maps?q=Merkez+Mah.+Hasat+Sok.+Kamara+No:52/1,+Şişli,+İstanbul&output=embed"
+      allowfullscreen
+      loading="lazy">
+    </iframe>
+  </div>
+</div>
+
+<footer class="bg-light text-center text-muted py-3 mt-5">
+  &copy; 2025 Doğu Yıldızı A.Ş. Tüm hakları saklıdır.
+</footer>
+
+</body>
+</html>
