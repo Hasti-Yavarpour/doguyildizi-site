@@ -1,41 +1,43 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>İletişim - Doğu Yıldızı</title>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
-  <a class="navbar-brand d-flex align-items-center" href="index.html">
-    <img src="images/logo.png" alt="Logo" style="height: 60px; margin-right: 10px;">
-    <span style="font-weight: bold; font-size: 20px;">Doğu Yıldızı</span>
-  </a>
-
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
-      <li class="nav-item"><a class="nav-link" href="about.html">Hakkımızda</a></li>
-      <li class="nav-item"><a class="nav-link" href="services.html">Hizmetler</a></li>
-      <li class="nav-item"><a class="nav-link active" href="contact.html">İletişim</a></li>
-    </ul>
-    <a href="en/contact.html" class="btn btn-outline-primary btn-sm">English</a>
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1e3264;">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <img src="images/logo.png" alt="Logo" style="height: 60px; margin-right: 10px;" />
+      <span style="font-size: 20px; font-weight: bold;">Doğu Yıldızı</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Ana Sayfa</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">Hakkımızda</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html">Hizmetler</a></li>
+        <li class="nav-item"><a class="nav-link active" href="contact.html">İletişim</a></li>
+      </ul>
+      <div class="dropdown">
+        <button class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">TR</button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item" href="en/contact.html">EN</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </nav>
 
 <div class="container mt-5">
   <h2>İletişim Formu</h2>
-  <form action="https://formspree.io/f/xnnvrblr" method="POST">
+  <form action="https://formspree.io/f/xnnvrblr" method="POST" class="row g-3">
     <div class="col-md-6">
       <label for="name" class="form-label">Ad Soyad</label>
       <input type="text" name="name" class="form-control" id="name" required>
@@ -70,7 +72,5 @@
 <footer class="bg-light text-center text-muted py-3 mt-5">
   &copy; 2025 Doğu Yıldızı A.Ş. Tüm hakları saklıdır.
 </footer>
-<script src="js/scripts.js"></script>
-
 </body>
 </html>
