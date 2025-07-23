@@ -1,82 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About - Dogu Yildizi</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/countup.js@2.6.2/dist/countUp.umd.js"></script>
-  <link rel="stylesheet" href="../css/styles.css" />
-  <style>
-    .strength-box {
-      border: 1px solid #ccc;
-      padding: 20px;
-      border-radius: 8px;
-      background-color: #f9f9f9;
-      text-align: center;
-      font-weight: 500;
-    }
-  </style>
-</head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1e3264;">
+<!-- ABOUT PAGE (English) -->
+<section class="fade-in-section hero-section">
   <div class="container">
-    <a class="navbar-brand d-flex align-items-center" href="index.html">
-      <img src="../images/logo.png" alt="Logo" style="height: 60px; margin-right: 10px;" />
-      <span style="font-size: 20px; font-weight: bold;">Dogu Yildizi</span>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-      </ul>
-      <div class="dropdown">
-        <button class="btn btn-outline-light btn-sm dropdown-toggle" data-bs-toggle="dropdown">EN</button>
-        <ul class="dropdown-menu dropdown-menu-end">
-          <li><a class="dropdown-item" href="../about.html">TR</a></li>
-        </ul>
-      </div>
-    </div>
+    <h2>About Doğu Yıldızı</h2>
+    <p>Founded in 2020 and headquartered in Şişli, Istanbul, Doğu Yıldızı A.Ş. is a rapidly growing multi-disciplinary company engaged in international and domestic trade. We specialize in the import, supply, and wholesale of industrial machinery, spare parts, and technical equipment, primarily serving the heavy industry sector.</p>
   </div>
-</nav>
+</section>
 
-<div class="container my-5">
-  <h2 class="text-center mb-4">Who We Are</h2>
-  <div class="row text-center g-4">
-    <div class="col-md-4"><div class="strength-box">Hands-on business leadership</div></div>
-    <div class="col-md-4"><div class="strength-box">Long-term global supplier partnerships</div></div>
-    <div class="col-md-4"><div class="strength-box">Professional customs and finance support</div></div>
+<section class="scroll-section">
+  <div class="container image-left">
+    <img src="../images/cargo-ship.jpg" alt="Cargo Ship" />
+    <p>Our operations bridge Europe, Turkey, and the Middle East, forming a reliable logistics and trade corridor. We source high-quality components from trusted European manufacturers and deliver them efficiently through our Turkish logistics infrastructure to clients, particularly in the Gulf region including Dubai.</p>
   </div>
-  <div class="row text-center g-4 mt-2">
-    <div class="col-md-4"><div class="strength-box">High-quality diverse products</div></div>
-    <div class="col-md-4 offset-md-4">
-      <div class="strength-box">
-        Net Profit 2024: <br>
-        <span id="profit-counter" style="font-size: 24px; font-weight: bold;">₺0</span>
-      </div>
-    </div>
-  </div>
-</div>
+</section>
 
-<footer class="bg-light text-center text-muted py-3 mt-5">
-  &copy; 2025 Dogu Yildizi A.S. All rights reserved.
-</footer>
+<section class="scroll-section">
+  <div class="container image-right">
+    <p>We are proud of our long-term collaborations with reputable manufacturers and distributors across Europe and Asia. With an expanding product portfolio, robust financial management, and strong operational infrastructure, Doğu Yıldızı continues to grow steadily while remaining committed to quality, transparency, and strategic partnerships.</p>
+    <img src="../images/team-photo.png" alt="Team Photo" />
+  </div>
+</section>
+
+<section class="features-row">
+  <div class="feature-box">Hands-on business leadership</div>
+  <div class="feature-box">Long-term global supplier partnerships</div>
+  <div class="feature-box">Professional customs and finance support</div>
+  <div class="feature-box">High-quality diverse products</div>
+  <div class="feature-box profit">
+    Net Profit 2024:<br>
+    <strong><span id="profit-count">₺0</span></strong>
+  </div>
+</section>
+
+<section class="mission-statement">
+  <p>Our mission is to be a trusted trade partner, ensuring timely delivery, technical excellence, and sustainable business relationships across global markets.</p>
+</section>
 
 <script>
-  window.onload = () => {
-    const counter = new countUp.CountUp('profit-counter', 398120, {
-      prefix: '₺',
-      duration: 3
-    });
-    if (!counter.error) counter.start();
-  };
-</script>
+  // Profit counter animation
+  document.addEventListener("DOMContentLoaded", () => {
+    const profitTarget = 398120;
+    const profitDisplay = document.getElementById("profit-count");
+    let current = 0;
 
-</body>
-</html>
+    const interval = setInterval(() => {
+      current += Math.ceil(profitTarget / 40); // Speed: 40 steps
+      if (current >= profitTarget) {
+        current = profitTarget;
+        clearInterval(interval);
+      }
+      profitDisplay.textContent = `₺${current.toLocaleString("tr-TR")}`;
+    }, 30);
+  });
+</script>
