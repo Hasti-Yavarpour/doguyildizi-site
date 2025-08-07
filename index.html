@@ -9,11 +9,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <style>
-    .nav-link.active {
-      border-bottom: 2px solid white;
-    }
     .hero {
-      background: url('images/machinery-closeup.jpg') center center/cover no-repeat;
+      background: url('images/machinery-closeup.png') center center/cover no-repeat;
       height: 80vh;
       position: relative;
       color: white;
@@ -31,35 +28,36 @@
       position: relative;
       z-index: 2;
     }
-    .language-switcher {
-      margin-left: auto;
+    .navbar-custom {
+      background-color: #142d5c;
+    }
+    .nav-link.active {
+      border-bottom: 2px solid white;
     }
   </style>
 </head>
 <body>
 
 <!-- Mavi Üst Menü -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
   <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand me-3" href="index.html">
+      <img src="images/logo-white.png" alt="Logo" height="35">
+    </a>
+
+    <!-- Bağlantılar -->
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      <li class="nav-item">
-        <a class="nav-link active" href="index.html">Anasayfa</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="about.html">Hakkımızda</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="services.html">Hizmetler</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="contact.html">İletişim</a>
-      </li>
+      <li class="nav-item"><a class="nav-link active" href="index.html">Anasayfa</a></li>
+      <li class="nav-item"><a class="nav-link" href="about.html">Hakkımızda</a></li>
+      <li class="nav-item"><a class="nav-link" href="services.html">Hizmetler</a></li>
+      <li class="nav-item"><a class="nav-link" href="contact.html">İletişim</a></li>
     </ul>
 
     <!-- Dil Değiştirici -->
-    <div class="dropdown language-switcher">
+    <div class="dropdown ms-auto">
       <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
-        Dil
+        🌐 Dil
       </button>
       <ul class="dropdown-menu dropdown-menu-end">
         <li><a class="dropdown-item active" href="#">Türkçe</a></li>
@@ -69,7 +67,7 @@
   </div>
 </nav>
 
-<!-- Geniş Arka Plan Fotoğrafı (Hero) -->
+<!-- Geniş Arka Plan Fotoğrafı -->
 <div class="hero">
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -78,7 +76,7 @@
   </div>
 </div>
 
-<!-- Hoşgeldiniz Bölümü -->
+<!-- Hoş Geldiniz Bölümü -->
 <section style="background-color: #0d1b3d; color: white; padding: 3rem 1rem;">
   <div class="container text-center">
     <h2>Doğu Yıldızı’na Hoş Geldiniz</h2>
@@ -97,6 +95,5 @@
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 </html>
