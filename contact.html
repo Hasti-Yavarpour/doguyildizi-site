@@ -14,34 +14,37 @@
     .nav-link.active {
       border-bottom: 2px solid white;
     }
-    .dropdown-menu {
-      min-width: 8rem;
-      font-size: 0.95rem;
+    .form-label {
+      color: #0d1b2a;
+      font-weight: 600;
     }
-    .dropdown-item {
-      padding: 8px 14px;
-      font-weight: 500;
+    .card {
+      border-radius: 10px;
+      border: none;
+    }
+    .btn-primary {
+      background-color: #072f66;
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: #0a3f88;
     }
   </style>
 </head>
 <body>
+
 <!-- Top Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
   <div class="container">
-    <!-- Logo -->
     <a class="navbar-brand me-3" href="index.html">
       <img src="images/logo.png" alt="Logo" height="72">
     </a>
-
-    <!-- Bağlantılar -->
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item"><a class="nav-link" href="index.html">Anasayfa</a></li>
       <li class="nav-item"><a class="nav-link" href="about.html">Hakkımızda</a></li>
       <li class="nav-item"><a class="nav-link" href="services.html">Hizmetler</a></li>
       <li class="nav-item"><a class="nav-link active" href="contact.html">İletişim</a></li>
     </ul>
-
-    <!-- Dil Değiştirici -->
     <div class="dropdown ms-auto">
       <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
         🌐 Dil
@@ -54,43 +57,69 @@
   </div>
 </nav>
 
+<!-- Page Content -->
+<div class="container my-5">
 
-<div class="container mt-5">
-  <h2>İletişim Formu</h2>
-  <form action="https://formspree.io/f/xnnvrblr" method="POST" class="row g-3">
-    <div class="col-md-6">
-      <label for="name" class="form-label">Ad Soyad</label>
-      <input type="text" name="name" class="form-control" id="name" required>
-    </div>
-    <div class="col-md-6">
-      <label for="email" class="form-label">E-posta</label>
-      <input type="email" name="email" class="form-control" id="email" required>
-    </div>
-    <div class="col-12">
-      <label for="message" class="form-label">Mesajınız</label>
-      <textarea name="message" class="form-control" id="message" rows="4" required></textarea>
-    </div>
-    <div class="col-12">
-      <button type="submit" class="btn btn-primary">Gönder</button>
-    </div>
-  </form>
+  <!-- Intro Text -->
+  <div class="text-center mb-5">
+    <h2>Bizimle İletişime Geçin</h2>
+    <p class="text-muted">Bizimle iletişime geçmekten çekinmeyin. Ekibimiz, size en kısa sürede dönüş yapacaktır.
+    Sorularınızı, iş tekliflerinizi veya taleplerinizi memnuniyetle bekliyoruz.</p>
+  </div>
 
-  <hr class="my-5">
+  <div class="row g-4">
 
-  <h4>Adresimiz</h4>
-  <p>Merkez Mah. Hasat Sok. Kamara No: 52/1, Şişli, İstanbul, Türkiye</p>
+    <!-- Left Column: Contact Info + Map -->
+    <div class="col-lg-5">
+      <h4>İletişim Bilgilerimiz</h4>
+      <p><strong>Doğu Yıldızı Maden Turizm Kuyumculuk Lojistik Danışmanlık İç ve Dış Ticaret A.Ş.</strong></p>
+      <p>Merkez Mah. Hasat Sok. Kamara No: 52/1, Şişli, İstanbul, Türkiye</p>
+      <p><strong>Vergi Dairesi / No:</strong> Şişli 3090637881</p>
+      <p><strong>MERSİS No:</strong> 0309063788100001</p>
+      <p><strong>E-posta:</strong> info@doguyildizi.com</p>
+      <p><strong>Telefon:</strong> +90 212 XXX XX XX</p>
+      <p><strong>Çalışma Saatleri:</strong> Pazartesi - Cuma, 09:00 - 18:00</p>
 
-  <div class="ratio ratio-16x9">
-    <iframe
-      src="https://www.google.com/maps?q=Merkez+Mah.+Hasat+Sok.+Kamara+No:52/1,+Şişli,+İstanbul&output=embed"
-      allowfullscreen
-      loading="lazy">
-    </iframe>
+      <div class="ratio ratio-16x9 mt-4">
+        <iframe
+          src="https://www.google.com/maps?q=Merkez+Mah.+Hasat+Sok.+Kamara+No:52/1,+Şişli,+İstanbul&output=embed"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- Right Column: Contact Form -->
+    <div class="col-lg-7">
+      <div class="card shadow p-4">
+        <h4 class="mb-4">İletişim Formu</h4>
+        <form action="https://formspree.io/f/xnnvrblr" method="POST" class="row g-3">
+          <div class="col-md-6">
+            <label for="name" class="form-label">Ad Soyad</label>
+            <input type="text" name="name" class="form-control" id="name" required>
+          </div>
+          <div class="col-md-6">
+            <label for="email" class="form-label">E-posta</label>
+            <input type="email" name="email" class="form-control" id="email" required>
+          </div>
+          <div class="col-12">
+            <label for="message" class="form-label">Mesajınız</label>
+            <textarea name="message" class="form-control" id="message" rows="5" required></textarea>
+          </div>
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary px-4">Gönder</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
   </div>
 </div>
 
+<!-- Footer -->
 <footer class="bg-light text-center text-muted py-3 mt-5">
   &copy; 2025 Doğu Yıldızı A.Ş. Tüm hakları saklıdır.
 </footer>
+
 </body>
 </html>
