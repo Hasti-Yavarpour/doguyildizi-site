@@ -17,27 +17,33 @@
 <body>
 
 
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light px-4">
-    <a class="navbar-brand d-flex align-items-center" href="index.html">
-      <img src="images/logo.png" alt="Logo" style="height: 60px; margin-right: 10px;">
-      <span style="font-weight: bold; font-size: 20px;">Dogu Yildizi</span>
+ <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand me-3" href="index.html">
+      <img src="../images/logo.png" alt="Logo" height="72">
     </a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <!-- Navbar Links -->
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+      <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+      <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+    </ul>
 
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
-        <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+    <!-- Language Dropdown -->
+    <div class="dropdown ms-auto">
+      <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+        🌐 Language
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><a class="dropdown-item" href="../index.html">Türkçe</a></li>
+        <li><a class="dropdown-item active" href="#">English</a></li>
       </ul>
-      <a href="../contact.html" class="btn btn-outline-primary btn-sm">Türkçe</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
   <!-- CONTACT FORM -->
   <div class="container mt-5">
