@@ -45,20 +45,3 @@
   </div>
 </nav>
 
-<script>
-  // Profit counter animation
-  document.addEventListener("DOMContentLoaded", () => {
-    const profitTarget = 398120;
-    const profitDisplay = document.getElementById("profit-count");
-    let current = 0;
-
-    const interval = setInterval(() => {
-      current += Math.ceil(profitTarget / 40); // Speed: 40 steps
-      if (current >= profitTarget) {
-        current = profitTarget;
-        clearInterval(interval);
-      }
-      profitDisplay.textContent = `₺${current.toLocaleString("tr-TR")}`;
-    }, 30);
-  });
-</script>
