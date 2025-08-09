@@ -58,3 +58,40 @@ section p {
 .delay-4 { transition-delay: 0.4s; }
 .delay-5 { transition-delay: 0.5s; }
 
+.section-who{
+  position:relative;
+  background:url('images/gear-gold.jpg') center/cover no-repeat;
+  color:#eef1f5;
+}
+.section-who::before{
+  content:""; position:absolute; inset:0;
+  background:rgba(7,47,102,.55); /* navy overlay for readability */
+}
+.section-who .content{ position:relative; z-index:1; }
+
+.feature-card {
+  border: 1px solid #e8eef6;
+  border-left: 4px solid #072f66;
+  border-radius: 14px;
+  background: #fff;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.feature-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(7,47,102,.08);
+}
+.feature-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: #eef4fb;
+  color: #072f66;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: .5rem;
+  font-size: 1.25rem;
+}
+
+
+
