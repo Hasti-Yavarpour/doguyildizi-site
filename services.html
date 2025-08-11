@@ -5,39 +5,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hizmetler - Doğu Yıldızı</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
   <link rel="stylesheet" href="css/styles.css" />
   <style>
-    .navbar-custom { background-color: #072f66; position: relative; z-index:1080; }
-    .nav-link.active { border-bottom: 2px solid white; }
-    .dropdown-menu { min-width: 8rem; font-size: 0.95rem; }
-    .dropdown-item { padding: 8px 14px; font-weight: 500; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .grid-item {
+      text-align: center;
+    }
+    .grid-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .navbar-custom {
+      background-color: #072f66;
+    }
+    .nav-link.active {
+      border-bottom: 2px solid white;
+    }
+    .dropdown-menu {
+      min-width: 8rem;
+      font-size: 0.95rem;
+    }
+    .dropdown-item {
+      padding: 8px 14px;
+      font-weight: 500;
+    }
     .service-box {
       margin-bottom: 50px;
-      background: #fff;
-      border-radius: 15px;
+      background: #ffffff; /* pure white background */
+      border-radius: 15px; /* smoother rounded corners */
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* subtle shadow */
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    .service-text h3 { color: #0d1b2a; font-weight: 600; }
-    .service-text p { color: #333; line-height: 1.6; }
-    .service-image img { width: 100%; height: auto; object-fit: cover; border-radius: 0; }
-    .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
-    .fade-in.visible { opacity: 1; transform: translateY(0); }
+    .service-text h3 {
+      color: #0d1b2a; /* darker navy blue for titles */
+      font-weight: 600;
+    }
+
+    .service-text p {
+      color: #333333; /* darker grey for better readability */
+      line-height: 1.6;
+    }
+    .service-image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 0;
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
   <div class="container">
+    <!-- Logo -->
     <a class="navbar-brand me-3" href="index.html">
       <img src="images/logo.png" alt="Logo" height="72">
     </a>
+
+    <!-- Bağlantılar -->
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item"><a class="nav-link" href="index.html">Anasayfa</a></li>
       <li class="nav-item"><a class="nav-link" href="about.html">Hakkımızda</a></li>
       <li class="nav-item"><a class="nav-link active" href="services.html">Hizmetler</a></li>
       <li class="nav-item"><a class="nav-link" href="contact.html">İletişim</a></li>
     </ul>
+
+    <!-- Dil Değiştirici -->
     <div class="dropdown ms-auto">
       <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
         🌐 Dil
@@ -50,25 +99,108 @@
   </div>
 </nav>
 
-<!-- your service sections remain unchanged -->
+ <!-- MAIN CONTENT -->
+  <section class="services-section container my-5">
 
-<footer class="bg-light text-center text-muted py-3">
+    <!-- Hizmet 1 -->
+    <div class="service-box fade-in d-flex align-items-center flex-wrap">
+      <div class="service-image col-md-6">
+        <img src="../images/import-supply.jpg" alt="İthalat ve Tedarik">
+      </div>
+      <div class="service-text col-md-6 p-4">
+        <h3>Endüstriyel Ekipman İthalatı ve Tedariki</h3>
+        <p>Avrupa ve Asya merkezli güvenilir üreticilerden yüksek kaliteli makine ve teknik bileşenler ithal ediyor, tedarikçi koordinasyonu, kalite kontrol ve teslimat süreçlerini yönetiyoruz.</p>
+      </div>
+    </div>
+
+    <!-- Hizmet 2 -->
+    <div class="service-box fade-in d-flex align-items-center flex-wrap flex-row-reverse">
+      <div class="service-image col-md-6">
+        <img src="../images/wholesale.jpg" alt="Toptan Ticaret">
+      </div>
+      <div class="service-text col-md-6 p-4">
+        <h3>Yurt İçi ve Uluslararası Toptan Ticaret</h3>
+        <p>Çeşitli endüstriyel ürünlerin sözleşmeli veya komisyon bazlı toptan satışını gerçekleştiriyor, Türkiye’deki müşterilere ve özellikle Dubai başta olmak üzere Orta Doğu’ya ihracat yapıyoruz.</p>
+      </div>
+    </div>
+
+    <!-- Hizmet 3 -->
+    <div class="service-box fade-in d-flex align-items-center flex-wrap">
+      <div class="service-image col-md-6">
+        <img src="../images/logistics.jpg" alt="Lojistik ve Dağıtım">
+      </div>
+      <div class="service-text col-md-6 p-4">
+        <h3>Lojistik ve Dağıtım Hizmetleri</h3>
+        <p>Türkiye’nin Avrupa ve Orta Doğu arasındaki stratejik konumunu kullanarak taşıma, gümrükleme ve nihai teslimat süreçlerini koordine ediyoruz.</p>
+      </div>
+    </div>
+
+    <!-- Hizmet 4 -->
+    <div class="service-box fade-in d-flex align-items-center flex-wrap flex-row-reverse">
+      <div class="service-image col-md-6">
+        <img src="../images/custom-sourcing.jpg" alt="Özel Tedarik Çözümleri">
+      </div>
+      <div class="service-text col-md-6 p-4">
+        <h3>Özel Tedarik Çözümleri</h3>
+        <p>Müşteri ihtiyaçlarına özel endüstriyel parçalar buluyor ve tedarik ediyor, güvenilir global tedarikçi ağımızla benzersiz gereksinimleri karşılıyoruz.</p>
+      </div>
+    </div>
+
+    <!-- Hizmet 5 -->
+    <div class="service-box fade-in d-flex align-items-center flex-wrap">
+      <div class="service-image col-md-6">
+        <img src="../images/trade-consulting.jpg" alt="Dış Ticaret Danışmanlığı">
+      </div>
+      <div class="service-text col-md-6 p-4">
+        <h3>Dış Ticaret Danışmanlığı ve Proje Desteği</h3>
+        <p>İthalat/ihracat mevzuatı, tedarik zinciri planlaması ve satın alma stratejileri konusunda danışmanlık sağlıyor, gümrük ve ticaret kanunlarına uyumu garanti ediyoruz.</p>
+      </div>
+    </div>
+
+    <!-- Hizmet 6 -->
+    <div class="service-box fade-in d-flex align-items-center flex-wrap flex-row-reverse">
+      <div class="service-image col-md-6">
+        <img src="../images/client-relations.jpg" alt="Müşteri İlişkileri">
+      </div>
+      <div class="service-text col-md-6 p-4">
+        <h3>Uzun Vadeli Tedarikçi ve Müşteri İlişkileri Yönetimi</h3>
+        <p>Üreticiler, distribütörler ve müşterilerle sürdürülebilir iş ortaklıkları kuruyor, güvenilir tedarik zinciri ve operasyonel süreklilik sağlıyoruz.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <!-- Buraya footer gelecek -->
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Fade-in Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const elements = document.querySelectorAll('.fade-in');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.2 });
+
+      elements.forEach(el => observer.observe(el));
+    });
+  </script>
+
+
+</body>
+</html>
+
+<footer class="bg-light text-center text-muted py-3 mt-5">
   &copy; 2025 Doğu Yıldızı A.Ş. Tüm hakları saklıdır.
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const elements = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.2 });
-    elements.forEach(el => observer.observe(el));
-  });
-</script>
 </body>
 </html>
