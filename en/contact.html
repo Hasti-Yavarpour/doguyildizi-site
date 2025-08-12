@@ -197,46 +197,36 @@
       50% { transform: translateY(-10px); }
     }
 
-        .typed-message { pointer-events: none; }
+    .envelope-container{
+      width: clamp(120px, 40vw, 200px);
+      height: clamp(75px, 24vw, 120px);
+      top: 0;
+      margin: 16px auto 24px;
+      animation: float 4s ease-in-out infinite;
+    }
+    .envelope-icon{ font-size: clamp(18px, 4vw, 28px); }
+    .letter{ width: 88%; height: 82%; }
+    .envelope.open .letter{ transform: translate(-50%, -50%) translateY(-18px); }
 
-    /* Mobile: scale down, place the message *below* the envelope */
-    @media (max-width: 576px) {
-      .envelope-container {
-        width: 120px;
-        height: 75px;
-        top: 0;                 /* don't push it down */
-        margin: 16px auto 24px; /* tighter spacing */
-        animation: float 4s ease-in-out infinite; /* gentler motion */
-      }
-
-      .envelope-icon { font-size: 18px; }
-
-      .letter {
-        width: 88%;
-        height: 80%;
-        /* slightly smaller lift so it stays inside */
-      }
-      .envelope.open .letter {
-        transform: translate(-50%, -50%) translateY(-18px);
-      }
-
-      /* Put the text under the envelope, full width, no overlap */
-      .typed-message {
-        position: static;       /* takes it out of absolute flow */
-        transform: none;
-        width: 100%;
-        max-width: 320px;
-        margin: 10px auto 0;
-        opacity: 1;             /* show when JS toggles .show */
-      }
+    /* ---- Typed bubble: keep it BELOW the envelope, not overlay ---- */
+    .typed-message{
+      position: relative !important;   /* leave normal document flow */
+      top: auto !important;
+      left: auto !important;
+      transform: none !important;
+      width: min(92vw, 420px) !important;
+      margin: 10px auto 0 !important;
+      white-space: normal !important;  /* no weird vertical wrapping */
+      word-break: normal !important;
+      pointer-events: none;            /* taps pass through on mobile */
+      z-index: auto !important;
     }
 
-    /* (Optional) Reduce motion for users who prefer it */
-    @media (prefers-reduced-motion: reduce) {
-      .envelope-container { animation: none; }
-      .envelope-flap,
-      .letter { transition: none; }
+    /* Small phones: slightly smaller */
+    @media (max-width: 576px){
+      .envelope-container{ margin: 12px auto 16px; }
     }
+
 
   </style>
 </head>
