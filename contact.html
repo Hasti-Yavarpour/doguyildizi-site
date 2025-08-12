@@ -262,7 +262,7 @@
     <div class="col-lg-6">
       <div class="card shadow p-4">
         <h4 class="mb-4">İletişim Formu</h4>
-        <form action="https://formspree.io/f/xnnvrblr" method="POST" class="row g-3">
+        <form id="contactForm" action="https://formspree.io/f/xnnvrblr" method="POST" class="row g-3">
           <!-- Hidden redirect field -->
           <input type="hidden" name="_redirect" value="https://doguyildizi.com/thank-you.html">
           <div class="col-md-6">
@@ -396,6 +396,32 @@ function typeMessage(message, element, cursor, speed) {
   type();
 }
 </script>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', async function(e) {
+  e.preventDefault(); // stop normal submit
+
+  const form = e.target;
+  const data = new FormData(form);
+
+  try {
+    const res = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (res.ok) {
+      window.location.href = "thank-you.html"; // redirect to your thank-you page
+    } else {
+      alert("There was a problem sending your message. Please try again.");
+    }
+  } catch (err) {
+    alert("Network error. Please try again.");
+  }
+});
+</script>
+
 
 </body>
 </html>
