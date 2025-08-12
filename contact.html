@@ -151,14 +151,6 @@
     }
 
     .typed-message {
-      position: absolute;
-      top: -120px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      max-width: 350px;
-      min-width: 280px;
-      text-align: center;
       opacity: 0;
       transition: opacity 0.3s ease;
       background: rgba(255, 255, 255, 0.95);
@@ -167,17 +159,22 @@
       box-shadow: 0 4px 15px rgba(7, 47, 102, 0.3);
     }
 
+    .envelope-container {
+      position: relative;
+      width: 160px;
+      height: 100px;
+      margin: 0 auto;
+    }
+
     /* Mobile adjustments */
     @media (max-width: 768px) {
       .typed-message {
-        top: -100px;
-        width: 95%;
         padding: 12px;
         font-size: 0.9rem;
+        margin-bottom: 20px !important;
       }
 
       .envelope-container {
-        top: 20px;
         width: 120px;
         height: 75px;
       }
@@ -286,8 +283,13 @@
       </div>
     </div>
 
-    <!-- Right: Animated Envelope -->
+    /* Right: Animated Envelope */
     <div class="col-lg-6 text-center">
+      <div class="typed-message mb-4" id="typedMessage">
+        <p class="fs-5" id="messageText">
+          <span id="typingText"></span><span class="typing-cursor" id="cursor">|</span>
+        </p>
+      </div>
       <div class="envelope-container">
         <div class="envelope" id="envelope">
           <div class="envelope-body">
@@ -295,11 +297,6 @@
           </div>
           <div class="envelope-flap"></div>
           <div class="letter"></div>
-        </div>
-        <div class="typed-message" id="typedMessage">
-          <p class="fs-5" id="messageText">
-            <span id="typingText"></span><span class="typing-cursor" id="cursor">|</span>
-          </p>
         </div>
       </div>
     </div>
