@@ -349,26 +349,24 @@
 
 <script>
 window.addEventListener('load', function () {
-  const isMobile = window.matchMedia('(max-width: 768px)').matches;
-
+  const isMobile = window.matchMedia('(max-width: 991px)').matches; // matches Bootstrap's lg breakpoint
   const lang = (document.documentElement.lang || 'tr').toLowerCase();
+
   const msgTR = "Bizimle iletişime geçmekten çekinmeyin. Ekibimiz, size en kısa sürede dönüş yapacaktır. Sorularınızı, iş tekliflerinizi veya taleplerinizi memnuniyetle bekliyoruz.";
   const msgEN = "Feel free to contact us. Our team will get back to you as soon as possible. We welcome your questions, job offers, or requests.";
   const message = lang.startsWith('en') ? msgEN : msgTR;
 
   if (isMobile) {
-    // Hide envelope but keep space clean
-    const envelopeContainer = document.querySelector('.envelope-container');
-    if (envelopeContainer) envelopeContainer.style.display = 'none';
+    // Mobile: show #mobileMessage with typing effect
+    const mobileMessageBox = document.querySelector('#mobileMessage');
+    const mobileMessageText = document.querySelector('#mobileMessage p');
 
-    // Show mobile message instantly
-    const mobileMsg = document.querySelector('#mobileMessage p');
-    document.getElementById('mobileMessage').style.display = 'block';
-    mobileMsg.textContent = message;
+    mobileMessageBox.style.display = 'block';
+    typeMessage(message, mobileMessageText, null, 20); // faster speed on mobile
     return;
   }
 
-  // Desktop animation
+  // Desktop: original envelope animation
   const envelope = document.getElementById('envelope');
   const typedMessage = document.getElementById('typedMessage');
   const typingText = document.getElementById('typingText');
@@ -396,9 +394,6 @@ function typeMessage(message, element, cursor, speed) {
   type();
 }
 </script>
-
-
-
 
 </body>
 </html>
