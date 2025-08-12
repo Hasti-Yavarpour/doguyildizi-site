@@ -190,6 +190,27 @@
       50% { transform: translateY(-10px); }
     }
 
+    /* Never block taps */
+    .typed-message { pointer-events: none; }
+
+    /* Phones: no envelope, just the text (no bubble box) */
+    @media (max-width: 768px){
+      .envelope-container { display: none !important; }
+
+      .typed-message{
+        position: static !important;
+        transform: none !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 12px 0 0 !important;
+        padding: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        opacity: 1 !important;        /* shown when JS toggles .show */
+      }
+    }
+
+
 
   </style>
 </head>
@@ -317,48 +338,47 @@
 </footer>
 
 <script>
-// Envelope animation on page load
-window.addEventListener('load', function() {
-  const envelope = document.getElementById('envelope');
-  const typedMessage = document.getElementById('typedMessage');
-  const typingText = document.getElementById('typingText');
-  const cursor = document.getElementById('cursor');
+window.addEventListener('load', function () {
+  const envelope      = document.getElementById('envelope');
+  const typedMessage  = document.getElementById('typedMessage');
+  const typingText    = document.getElementById('typingText');
+  const cursor        = document.getElementById('cursor');
 
+  // TR page text (use EN on en/contact.html)
   const message = "Bizimle iletişime geçmekten çekinmeyin. Ekibimiz, size en kısa sürede dönüş yapacaktır. Sorularınızı, iş tekliflerinizi veya taleplerinizi memnuniyetle bekliyoruz.";
 
-  // Start envelope opening after a short delay
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+  if (isMobile) {
+    // Phone: no envelope animation, just quick typing
+    typedMessage.classList.add('show');
+    typeMessage(message, typingText, cursor, 12);  // fast
+    return;
+  }
+
+  // Desktop: keep your original animation
   setTimeout(() => {
     envelope.classList.add('open');
-
-    // Show message container and start typing after envelope opens
     setTimeout(() => {
       typedMessage.classList.add('show');
-      typeMessage(message, typingText, cursor);
-    }, 1400); // Wait for envelope to fully open
-
+      typeMessage(message, typingText, cursor, 50); // normal
+    }, 1400);
   }, 500);
 });
 
-function typeMessage(message, element, cursor) {
+function typeMessage(message, element, cursor, speed) {
   let i = 0;
-  const speed = 50; // typing speed in milliseconds
-
-  function type() {
+  (function type() {
     if (i < message.length) {
-      element.textContent += message.charAt(i);
-      i++;
+      element.textContent += message.charAt(i++);
       setTimeout(type, speed);
     } else {
-      // Remove cursor after typing is complete
-      setTimeout(() => {
-        cursor.style.display = 'none';
-      }, 1000);
+      setTimeout(() => { cursor.style.display = 'none'; }, 600);
     }
-  }
-
-  type();
+  })();
 }
 </script>
+
 
 </body>
 </html>
