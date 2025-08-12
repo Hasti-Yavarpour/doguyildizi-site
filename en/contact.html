@@ -399,7 +399,8 @@ document.getElementById('contactFormEN').addEventListener('submit', async functi
     });
 
     if (res.ok) {
-      window.location.href = "en\thank-you.html";
+      // Redirect to the thank-you page in the same /en/ folder
+      window.location.href = "thank-you.html";
     } else {
       alert("There was a problem sending your message. Please try again.");
     }
@@ -408,6 +409,7 @@ document.getElementById('contactFormEN').addEventListener('submit', async functi
   }
 });
 </script>
+
 
 </body>
 </html>
