@@ -28,93 +28,55 @@
     .nav-link.active {
       border-bottom: 2px solid white;
     }
-    /* ===========================
-       Language dropdown (navbar)
-       =========================== */
-
-    /* Button: compact, slightly squarish, smooth hover */
     .lang-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 6px 12px !important;
-      border-radius: 8px !important;             /* softer corners */
-      border: 1px solid rgba(255,255,255,.55) !important;
-      background: transparent !important;
-      line-height: 1;
-      transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease;
+       background: transparent;
+       border: 1px solid rgba(255, 255, 255, 0.5);
+       border-radius: 6px;
+       padding: 6px 10px;
+       color: white;
     }
+
     .lang-btn:hover {
-      background-color: rgba(255,255,255,.14) !important;
-      border-color: #fff !important;
-      box-shadow: 0 2px 8px rgba(0,0,0,.15);
-    }
-    /* Smaller caret to match compact button */
-    .lang-btn.dropdown-toggle::after {
-      margin-left: 6px;
-      vertical-align: middle;
-      border-top-width: .3rem;
-      border-right-width: .3rem;
-      border-left-width: .3rem;
+       background: rgba(255, 255, 255, 0.1);
+       border-color: rgba(255, 255, 255, 0.7);
+       color: white;
     }
 
-    /* Flags: soften edges + tiny depth, consistent aspect */
-    .lang-btn img,
-    .dropdown-item img {
-      width: 20px;
-      height: 14px;
-      object-fit: cover;
-      border-radius: 3px;                         /* soften sharp corners */
-      box-shadow: 0 1px 2px rgba(0,0,0,.12);      /* subtle depth */
-      image-rendering: auto;                      /* smooth scaling */
-      filter: contrast(96%) brightness(102%);     /* reduce harshness slightly */
+    .lang-btn img {
+       width: 20px;
+       height: 14px;
+       border-radius: 2px;
     }
 
-    /* Menu: modern card look */
+    /* Compact Dropdown */
     .dropdown-menu {
-      min-width: 9rem;
-      font-size: .95rem;
-      border-radius: 10px !important;
-      padding: 6px 0;
-      border: 1px solid rgba(0,0,0,.06);
-      box-shadow: 0 10px 24px rgba(0,0,0,.16);
+       min-width: 60px !important;
+       padding: 4px 0;
+       border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
-    /* Items: aligned with gap, crisp hover/active */
     .dropdown-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      font-weight: 500;
-      border-radius: 8px;                         /* rounded highlight on hover */
-      transition: background-color .18s ease;
+       padding: 6px 12px;
+       text-align: center;
     }
+
+    .dropdown-item img {
+       width: 20px;
+       height: 14px;
+       border-radius: 2px;
+    }
+
     .dropdown-item:hover {
-      background-color: #eaf1ff;                  /* soft blue hover */
-    }
-    .dropdown-item.active,
-    .dropdown-item:active {
-      background-color: #4e6bff !important;       /* selected */
-      color: #fff !important;
+       background: #f8f9fa;
     }
 
-    /* Focus ring for accessibility */
-    .lang-btn:focus-visible,
-    .dropdown-item:focus-visible {
-      outline: 2px solid #9ab3ff;
-      outline-offset: 2px;
+    .section-who{
+      position:relative;
+      background:url('images/gear-gold.jpg') center/cover no-repeat;
+      color:#eef1f5;
+      padding:70px 0;
     }
-
-    /* Respect reduced motion */
-    @media (prefers-reduced-motion: reduce) {
-      .lang-btn,
-      .dropdown-item {
-        transition: none;
-      }
-    }
-
 
     .service-box {
       margin-bottom: 50px;
@@ -162,18 +124,19 @@
       <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
     </ul>
     <div class="dropdown ms-auto">
-      <button class="btn btn-outline-light dropdown-toggle d-flex align-items-center lang-btn" type="button" data-bs-toggle="dropdown">
-        <img src="/images/gb.png" alt="English">
+      <button class="btn lang-btn dropdown-toggle d-flex align-items-center" type="button" data-bs-toggle="dropdown">
+        <img src="images/gb.png" alt="English">
+        <span class="caret"></span>
       </button>
-      <ul class="dropdown-menu dropdown-menu-end">
+      <ul class="dropdown-menu dropdown-lang dropdown-menu-end">
         <li>
-          <a class="dropdown-item d-flex align-items-center" href="../index.html">
-            <img src="/images/tr.png" alt="Türkçe">
+          <a class="dropdown-item lang-item d-flex align-items-center active" href="#">
+            <img src="images/gb.png" alt="English">
           </a>
         </li>
         <li>
-          <a class="dropdown-item active d-flex align-items-center" href="#">
-            <img src="/images/gb.png" alt="English">
+          <a class="dropdown-item lang-item d-flex align-items-center" href="../services.html">
+            <img src="images/tr.png" alt="Türkçe">
           </a>
         </li>
       </ul>
