@@ -24,88 +24,47 @@
 
     .welcome-section{background:linear-gradient(135deg,#072f66 0%,#094080 100%);color:#fff;padding:3rem 1rem;opacity:0;transform:translateY(20px);transition:opacity 1s,transform 1s}
     .welcome-section.show{opacity:1;transform:translateY(0)}
-
-    /* Button: compact, slightly squarish, smooth hover */
     .lang-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 6px 12px !important;
-      border-radius: 8px !important;             /* softer corners */
-      border: 1px solid rgba(255,255,255,.55) !important;
-      background: transparent !important;
-      line-height: 1;
-      transition: background-color .2s ease, border-color .2s ease, box-shadow .2s ease;
+       background: transparent;
+       border: 1px solid rgba(255, 255, 255, 0.5);
+       border-radius: 6px;
+       padding: 6px 10px;
+       color: white;
     }
+
     .lang-btn:hover {
-      background-color: rgba(255,255,255,.14) !important;
-      border-color: #fff !important;
-      box-shadow: 0 2px 8px rgba(0,0,0,.15);
-    }
-    /* Smaller caret to match compact button */
-    .lang-btn.dropdown-toggle::after {
-      margin-left: 6px;
-      vertical-align: middle;
-      border-top-width: .3rem;
-      border-right-width: .3rem;
-      border-left-width: .3rem;
+       background: rgba(255, 255, 255, 0.1);
+       border-color: rgba(255, 255, 255, 0.7);
+       color: white;
     }
 
-    /* Flags: soften edges + tiny depth, consistent aspect */
-    .lang-btn img,
-    .dropdown-item img {
-      width: 20px;
-      height: 14px;
-      object-fit: cover;
-      border-radius: 3px;                         /* soften sharp corners */
-      box-shadow: 0 1px 2px rgba(0,0,0,.12);      /* subtle depth */
-      image-rendering: auto;                      /* smooth scaling */
-      filter: contrast(96%) brightness(102%);     /* reduce harshness slightly */
+    .lang-btn img {
+       width: 20px;
+       height: 14px;
+       border-radius: 2px;
     }
 
-    /* Menu: modern card look */
+    /* Compact Dropdown */
     .dropdown-menu {
-      min-width: 9rem;
-      font-size: .95rem;
-      border-radius: 10px !important;
-      padding: 6px 0;
-      border: 1px solid rgba(0,0,0,.06);
-      box-shadow: 0 10px 24px rgba(0,0,0,.16);
+       min-width: 60px !important;
+       padding: 4px 0;
+       border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
-    /* Items: aligned with gap, crisp hover/active */
     .dropdown-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      font-weight: 500;
-      border-radius: 8px;                         /* rounded highlight on hover */
-      transition: background-color .18s ease;
+       padding: 6px 12px;
+       text-align: center;
     }
+
+    .dropdown-item img {
+       width: 20px;
+       height: 14px;
+       border-radius: 2px;
+    }
+
     .dropdown-item:hover {
-      background-color: #eaf1ff;                  /* soft blue hover */
-    }
-    .dropdown-item.active,
-    .dropdown-item:active {
-      background-color: #4e6bff !important;       /* selected */
-      color: #fff !important;
-    }
-
-    /* Focus ring for accessibility */
-    .lang-btn:focus-visible,
-    .dropdown-item:focus-visible {
-      outline: 2px solid #9ab3ff;
-      outline-offset: 2px;
-    }
-
-    /* Respect reduced motion */
-    @media (prefers-reduced-motion: reduce) {
-      .lang-btn,
-      .dropdown-item {
-        transition: none;
-      }
+       background: #f8f9fa;
     }
   </style>
 </head>
