@@ -55,6 +55,16 @@
     }
     .dropdown-lang .lang-item:hover { background:#f0f4ff; }
 
+    /* Make dropdown arrow white */
+    .dropdown-toggle::after {
+      border-top: 0.4em solid white !important;
+      border-right: 0.4em solid transparent;
+      border-left: 0.4em solid transparent;
+      margin-left: 0.4em;
+      vertical-align: middle;
+    }
+
+
   </style>
 </head>
 <body>
@@ -77,12 +87,12 @@
       <ul class="dropdown-menu dropdown-lang dropdown-menu-end">
         <li>
           <a class="dropdown-item lang-item d-flex align-items-center active" href="#">
-            <img src="images/tr.png" alt="Türkçe"> Türkçe
+            <img src="images/tr.png" alt="Türkçe">
           </a>
         </li>
         <li>
           <a class="dropdown-item lang-item d-flex align-items-center" href="en/index.html">
-            <img src="images/gb.png" alt="English"> English
+            <img src="images/gb.png" alt="English">
           </a>
         </li>
       </ul>
