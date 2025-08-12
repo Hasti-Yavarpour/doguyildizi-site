@@ -284,7 +284,9 @@
 
     <!-- Right: Animated Envelope -->
     <div class="col-lg-6 text-center">
-      <div class="envelope-container">
+
+      <!-- Desktop Envelope Animation -->
+      <div class="envelope-container d-none d-lg-block">
         <div class="envelope" id="envelope">
           <div class="envelope-body">
             <i class="bi bi-envelope envelope-icon"></i>
@@ -298,9 +300,14 @@
           </p>
         </div>
       </div>
+
+      <!-- Mobile Instant Message -->
+      <div id="mobileMessage" class="d-block d-lg-none" style="display:none;">
+        <p class="fs-5" style="color:#072f66; margin-top:12px;"></p>
+      </div>
+
     </div>
 
-  </div>
 
   <!-- Spacer -->
   <hr class="my-5">
@@ -342,62 +349,54 @@
 
 <script>
 window.addEventListener('load', function () {
-  const envelope     = document.getElementById('envelope');
-  const typedMessage = document.getElementById('typedMessage');
-  const typingText   = document.getElementById('typingText');
-  const cursor       = document.getElementById('cursor');
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
-  // Pick message by page language
   const lang = (document.documentElement.lang || 'tr').toLowerCase();
   const msgTR = "Bizimle iletişime geçmekten çekinmeyin. Ekibimiz, size en kısa sürede dönüş yapacaktır. Sorularınızı, iş tekliflerinizi veya taleplerinizi memnuniyetle bekliyoruz.";
   const msgEN = "Feel free to contact us. Our team will get back to you as soon as possible. We welcome your questions, job offers, or requests.";
   const message = lang.startsWith('en') ? msgEN : msgTR;
 
-  const isMobile = window.matchMedia('(max-width: 768px)').matches;
-
   if (isMobile) {
-    // Phones: no envelope, just text
-    try {
-      // force visible in case any CSS hides it
-      typedMessage.classList.add('show');
-      typedMessage.style.display = 'block';
-      typedMessage.style.opacity = '1';
-      // quick typing; fallback to plain text if anything interrupts
-      typeMessage(message, typingText, cursor, 12, () => {
-        if (!typingText.textContent) typingText.textContent = message;
-      });
-    } catch (e) {
-      typingText.textContent = message;
-      cursor.style.display = 'none';
-    }
+    // Hide envelope but keep space clean
+    const envelopeContainer = document.querySelector('.envelope-container');
+    if (envelopeContainer) envelopeContainer.style.display = 'none';
+
+    // Show mobile message instantly
+    const mobileMsg = document.querySelector('#mobileMessage p');
+    document.getElementById('mobileMessage').style.display = 'block';
+    mobileMsg.textContent = message;
     return;
   }
 
-  // Desktop: keep the animation
+  // Desktop animation
+  const envelope = document.getElementById('envelope');
+  const typedMessage = document.getElementById('typedMessage');
+  const typingText = document.getElementById('typingText');
+  const cursor = document.getElementById('cursor');
+
   setTimeout(() => {
-    if (envelope) envelope.classList.add('open');
+    envelope.classList.add('open');
     setTimeout(() => {
       typedMessage.classList.add('show');
-      typedMessage.style.opacity = '1';
       typeMessage(message, typingText, cursor, 50);
     }, 1400);
   }, 500);
 });
 
-function typeMessage(message, element, cursor, speed = 40, onStart) {
+function typeMessage(message, element, cursor, speed) {
   let i = 0;
-  if (onStart) onStart();
-  (function type() {
-    if (!element) return;
+  function type() {
     if (i < message.length) {
       element.textContent += message.charAt(i++);
       setTimeout(type, speed);
     } else {
-      setTimeout(() => { if (cursor) cursor.style.display = 'none'; }, 500);
+      if (cursor) setTimeout(() => cursor.style.display = 'none', 1000);
     }
-  })();
+  }
+  type();
 }
 </script>
+
 
 
 
