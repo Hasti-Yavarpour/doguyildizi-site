@@ -28,29 +28,60 @@
     .nav-link.active {
       border-bottom: 2px solid white;
     }
+    /* Language button in navbar */
     .lang-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
       border-radius: 6px !important; /* slightly rounded */
-      padding: 6px 10px !important; /* more compact */
+      padding: 6px 12px !important;
+      background-color: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      transition: background-color 0.2s ease, border-color 0.2s ease;
     }
+
+    .lang-btn:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      border-color: #ffffff;
+    }
+
+    /* Flag in navbar button */
     .lang-btn img {
       width: 20px;
-      height: auto;
-      margin-right: 6px;
+      height: 14px;
+      object-fit: cover;
     }
-    /* Style dropdown items consistently */
-    .dropdown-item img {
-      width: 20px;
-      height: auto;
-      margin-right: 8px;
-    }
+
+    /* Dropdown menu */
     .dropdown-menu {
       min-width: 8rem;
       font-size: 0.95rem;
+      border-radius: 6px !important;
+      padding: 4px 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
     }
+
+    /* Dropdown items */
     .dropdown-item {
-      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
       font-weight: 500;
+      padding: 8px 14px;
+      transition: background-color 0.2s ease;
     }
+
+    .dropdown-item img {
+      width: 20px;
+      height: 14px;
+      object-fit: cover;
+    }
+
+    .dropdown-item:hover {
+      background-color: #f0f4ff;
+    }
+
     .service-box {
       margin-bottom: 50px;
       background: #ffffff;
