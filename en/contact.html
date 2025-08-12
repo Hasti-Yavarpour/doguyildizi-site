@@ -196,6 +196,48 @@
       0%, 100% { transform: translateY(0px); }
       50% { transform: translateY(-10px); }
     }
+
+        .typed-message { pointer-events: none; }
+
+    /* Mobile: scale down, place the message *below* the envelope */
+    @media (max-width: 576px) {
+      .envelope-container {
+        width: 120px;
+        height: 75px;
+        top: 0;                 /* don't push it down */
+        margin: 16px auto 24px; /* tighter spacing */
+        animation: float 4s ease-in-out infinite; /* gentler motion */
+      }
+
+      .envelope-icon { font-size: 18px; }
+
+      .letter {
+        width: 88%;
+        height: 80%;
+        /* slightly smaller lift so it stays inside */
+      }
+      .envelope.open .letter {
+        transform: translate(-50%, -50%) translateY(-18px);
+      }
+
+      /* Put the text under the envelope, full width, no overlap */
+      .typed-message {
+        position: static;       /* takes it out of absolute flow */
+        transform: none;
+        width: 100%;
+        max-width: 320px;
+        margin: 10px auto 0;
+        opacity: 1;             /* show when JS toggles .show */
+      }
+    }
+
+    /* (Optional) Reduce motion for users who prefer it */
+    @media (prefers-reduced-motion: reduce) {
+      .envelope-container { animation: none; }
+      .envelope-flap,
+      .letter { transition: none; }
+    }
+
   </style>
 </head>
 <body>
