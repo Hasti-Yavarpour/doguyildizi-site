@@ -74,12 +74,14 @@
     .fade-in{opacity:0;transform:translateY(14px);transition:all .6s ease}
     .fade-in.show{opacity:1;transform:none}
 
-    /* KPI grid: 4 horizontal on lg, 2x2 on phones */
+
+    /* KPI grid vertical layout */
     .kpi-grid{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
+      display:flex;
+      flex-direction:column;
       gap:14px;
     }
+
     @media (min-width: 992px){
       .kpi-grid{ grid-template-columns: repeat(4, minmax(0,1fr)); }
     }
@@ -113,13 +115,30 @@
     }
 
     .kpi-label{
-      font-size:.85rem;
-      color:#6c757d;
-      margin-top:4px;
+      word-break:keep-all;
+      white-space:normal;
     }
     .kpi-item{ position:relative; }
     @media (min-width:992px){
       .kpi-item:not(:last-child){ box-shadow: inset -1px 0 0 #eef1f6; }
+    }
+    /* Business Volume Specific Styling */
+    .business-volume-title{
+      color:#0d2240 !important; /* dark navy */
+      font-weight:600;
+    }
+
+    .kpi-item .kpi-icn{
+      color:#0d2240; /* dark navy icons */
+    }
+
+    .kpi-item .kpi-label{
+      color:#0d2240; /* dark navy labels */
+    }
+
+    .kpi-item .kpi-num{
+      color:#3f6ae0; /* blue numbers */
+      font-weight:800;
     }
   </style>
 </head>
@@ -245,10 +264,9 @@
       </div>
 
       <!-- RIGHT SIDE: Business KPIs with horizontal counters -->
-      <div class="col-lg-4">
-        <div class="card h-100 shadow-sm fade-in">
-          <div class="card-body">
-            <h5 class="text-secondary text-center mb-3">OUR BUSINESS VOLUME</h5>
+      <div class="card h-100 shadow-sm fade-in business-volume-card">
+        <div class="card-body text-center">
+            <h5 class="business-volume-title mb-3">OUR BUSINESS VOLUME</h5>
 
             <div class="kpi-grid">
               <!-- KPI 1 -->
@@ -288,9 +306,8 @@
               </div>
             </div>
 
-            <p class="mt-3 text-secondary small text-center mb-0">Continuous growth since 2020</p>
+            <p class="mt-3 text-secondary small mb-0">Continuous growth since 2020</p>
           </div>
-        </div>
       </div>
 
 
