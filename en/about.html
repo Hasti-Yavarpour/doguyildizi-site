@@ -74,6 +74,90 @@
 
     .fade-in{opacity:0;transform:translateY(14px);transition:all .6s ease}
     .fade-in.show{opacity:1;transform:none}
+
+    /* KPI grid vertical layout */
+    /* Limit all styling ONLY to the KPI card */
+    .kpi-card * {
+        box-sizing: border-box;
+    }
+
+    /* Color control */
+    .kpi-card .kpi-icn,
+    .kpi-card .kpi-label,
+    .kpi-card h5 {
+        color: #0d2240 !important;   /* dark navy */
+    }
+
+    .kpi-card .kpi-num {
+        color: #3f6ae0 !important;   /* your blue for numbers */
+        font-weight: 800;
+    }
+    .kpi-grid{
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    @media (min-width: 992px){
+      .kpi-grid{ grid-template-columns: repeat(4, minmax(0,1fr)); }
+    }
+
+    .kpi-item{
+      border:1px solid #e8eef6;
+      border-radius:12px;
+      padding:16px 12px;
+      text-align:center;
+      background:#fff;
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .kpi-item:hover{
+      transform:translateY(-2px);
+      box-shadow:0 8px 24px rgba(7,47,102,.08);
+    }
+
+    .kpi-icn{
+      font-size:22px;
+      color:#072f66;
+      opacity:.9;
+      display:block;
+      margin-bottom:6px;
+    }
+
+    .kpi-num{
+      font-weight:800;
+      font-size:20px;
+      color:#3f6ae0; /* uses your primary-ish blue */
+      line-height:1.1;
+    }
+
+    .kpi-label {
+        word-break: normal;
+        white-space: normal;
+        overflow-wrap: break-word;
+        hyphens: none;
+    }
+    .kpi-item{ position:relative; }
+    @media (min-width:992px){
+      .kpi-item:not(:last-child){ box-shadow: inset -1px 0 0 #eef1f6; }
+    }
+    /* Business Volume Specific Styling */
+    .business-volume-title{
+      color:#0d2240 !important; /* dark navy */
+      font-weight:600;
+    }
+
+    .kpi-item .kpi-icn{
+      color:#0d2240; /* dark navy icons */
+    }
+
+    .kpi-item .kpi-label{
+      color:#0d2240; /* dark navy labels */
+    }
+
+    .kpi-item .kpi-num{
+      color:#3f6ae0; /* blue numbers */
+      font-weight:800;
+    }
   </style>
 </head>
 <body>
@@ -193,12 +277,40 @@
       </div>
 
       <div class="col-lg-4">
-        <div class="card h-100 shadow-sm fade-in">
-          <div class="card-body d-flex flex-column justify-content-center text-center">
-            <h5 class="text-secondary mb-2">Net Profit</h5>
-            <div class="mb-3"><div class="display-6 fw-bold text-primary"><span id="profit2024">0</span> TL</div><small class="text-muted">2024</small></div>
-            <div><div class="fs-4 fw-semibold text-primary"><span id="profit2023">0</span> TL</div><small class="text-muted">2023</small></div>
-            <p class="mt-3 text-secondary small mb-0">Fast counter animation within the targeted range.</p>
+        <div class="card h-100 shadow-sm fade-in kpi-card">
+          <div class="card-body text-center">
+
+            <h5 class="mb-3">OUR BUSINESS VOLUME</h5>
+
+            <div class="kpi-grid">
+
+              <div class="kpi-item">
+                <i class="bi bi-globe2 kpi-icn"></i>
+                <div class="kpi-num"><span class="js-counter" data-to="10"></span></div>
+                <div class="kpi-label">Countries</div>
+              </div>
+
+              <div class="kpi-item">
+                <i class="bi bi-buildings kpi-icn"></i>
+                <div class="kpi-num"><span class="js-counter" data-to="50" data-suffix="+"></span></div>
+                <div class="kpi-label">Business Partners</div>
+              </div>
+
+              <div class="kpi-item">
+                <i class="bi bi-box-seam kpi-icn"></i>
+                <div class="kpi-num"><span class="js-counter" data-to="500" data-suffix="++"></span></div>
+                <div class="kpi-label">Products</div>
+              </div>
+
+              <div class="kpi-item">
+                <i class="bi bi-calendar-check kpi-icn"></i>
+                <div class="kpi-num"><span class="js-counter" data-to="5" data-suffix="+"></span></div>
+                <div class="kpi-label">Years of Experience</div>
+              </div>
+
+            </div>
+
+            <p class="mt-3 text-secondary small mb-0">Continuous growth since 2020</p>
           </div>
         </div>
       </div>
@@ -212,23 +324,57 @@
 </footer>
 
 <script>
-  const faders=document.querySelectorAll('.fade-in');
-  const io=new IntersectionObserver((es,obs)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');obs.unobserve(e.target);}})},{threshold:.2});
-  faders.forEach(f=>io.observe(f));
+  // Fade-in (keep your existing code if you prefer)
+  const faders = document.querySelectorAll('.fade-in');
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); obs.unobserve(e.target); } });
+  }, { threshold: .2 });
+  faders.forEach(f => io.observe(f));
 
-  function animateCount(el,to,duration=1500){
-    const start=0, t0=performance.now();
-    const step=now=>{const p=Math.min((now-t0)/duration,1);const val=Math.floor(start+(to-start)*p);
-      el.textContent=val.toLocaleString('en-US'); if(p<1) requestAnimationFrame(step);};
+  // Generic counter
+  function animateCount(el, to, duration = 1200) {
+    const start = 0, t0 = performance.now();
+    const step = now => {
+      const p = Math.min((now - t0) / duration, 1);
+      const val = Math.floor(start + (to - start) * p);
+      el.textContent = val.toLocaleString('tr-TR');
+      if (p < 1) requestAnimationFrame(step);
+      else {
+        // apply optional suffix when finished to avoid "50+"
+        const sfx = el.dataset.suffix || '';
+        if (sfx) el.textContent += sfx;
+      }
+    };
     requestAnimationFrame(step);
   }
-  const counterCard=document.getElementById('profit2024').closest('.card');
-  const co=new IntersectionObserver((es,obs)=>{if(es[0].isIntersecting){
-      animateCount(document.getElementById('profit2024'),398120,1600);
-      animateCount(document.getElementById('profit2023'),140050,1400);
+
+  // Observe KPI card and run counters once
+  const kpiCard = document.querySelector('.kpi-grid');
+  if (kpiCard) {
+    const kpiObs = new IntersectionObserver((entries, obs) => {
+      if (!entries[0].isIntersecting) return;
+      kpiCard.querySelectorAll('.js-counter').forEach(el => {
+        const to = parseInt(el.dataset.to, 10) || 0;
+        animateCount(el, to, 1200);
+      });
       obs.disconnect();
-  }},{threshold:.4});
-  co.observe(counterCard);
+    }, { threshold: .35 });
+    kpiObs.observe(kpiCard);
+  }
+
+  // (Optional) keep your profit box counters working too
+  const profit2024 = document.getElementById('profit2024');
+  const profit2023 = document.getElementById('profit2023');
+  if (profit2024 && profit2023) {
+    const profitCard = profit2024.closest('.card');
+    const profitObs = new IntersectionObserver((es, obs) => {
+      if (!es[0].isIntersecting) return;
+      animateCount(profit2024, 398120, 1600);
+      animateCount(profit2023, 140050, 1400);
+      obs.disconnect();
+    }, { threshold: .4 });
+    profitObs.observe(profitCard);
+  }
 </script>
 </body>
 </html>
